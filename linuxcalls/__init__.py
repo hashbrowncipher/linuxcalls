@@ -1,5 +1,4 @@
 from ._syscalls import lib as _lib
-from ._syscalls import ffi as _ffi
 
 from ctypes import Structure
 from ctypes import c_char
@@ -9,6 +8,9 @@ from ctypes import c_uint
 
 v = vars()
 for field, value in _lib.__dict__.items():
+    if field.upper() == field:
+        v[field] = value
+
     if field.startswith('sys_'):
         v[field[4:]] = value
 

@@ -81,7 +81,7 @@ c_source = "\n".join(numbers + impls)
 print(c_def)
 
 ffibuilder = cffi.FFI()
-ffibuilder.set_source("linux_syscalls._syscalls", c_source)
+ffibuilder.set_source("linuxcalls._syscalls", c_source)
 ffibuilder.cdef(c_def)
 
 if __name__ == "__main__":
